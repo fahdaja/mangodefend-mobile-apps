@@ -74,7 +74,7 @@ class ScannerViewModel(
             Log.d("MangoDebug", "Mulai upload: ${file.name} (Temp ID: $tempId)")
 
             try {
-                val result = repository.scanFile(file, originalName)
+                val result = repository.scanFile(file, originalName, deviceId = 2.toString())
 
                 result.fold(
                     onSuccess = { serverData ->

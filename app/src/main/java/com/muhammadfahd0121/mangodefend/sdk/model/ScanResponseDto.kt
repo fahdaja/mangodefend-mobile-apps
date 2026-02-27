@@ -12,10 +12,10 @@ data class ScanDataDto(
     // Saat Upload (Queued)
     @SerializedName("task_id") val taskId: String?,
     @SerializedName("check_status_url") val checkStatusUrl: String?,
-
+    @SerializedName("device_id") val deviceId: String?,
+    @SerializedName("device_type") val deviceType: String?,
     // Saat Completed (Hasil Scan)
     @SerializedName("filename") val fileName: String?,
     @SerializedName("prediction") val prediction: String?,
-    @SerializedName("confidence") val confidence: Float?,
     @SerializedName("file_size") val fileSize: Long?
 )

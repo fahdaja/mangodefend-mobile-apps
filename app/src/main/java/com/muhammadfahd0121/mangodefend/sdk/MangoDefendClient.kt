@@ -2,6 +2,7 @@ package com.muhammadfahd0121.mangodefend.sdk
 import com.muhammadfahd0121.mangodefend.sdk.model.ScanResponseDto
 import okhttp3.MultipartBody
 import okhttp3.OkHttpClient
+import okhttp3.RequestBody
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -50,9 +51,10 @@ class MangoDefendClient(
     // --- PUBLIC FUNCTIONS (Ini yang dipanggil Mobile App) ---
 
     // Mengembalikan Result<T> agar mobile app tahu sukses/gagal
-    suspend fun scanFile(filePart: MultipartBody.Part): Result<ScanResponseDto> {
+    suspend fun scanFile(filePart: MultipartBody.Part, deviceId: RequestBody,   // Parameter Baru 1
+                         deviceType: RequestBody): Result<ScanResponseDto> {
         return try {
-            val response = api.scanFile(filePart)
+            val response = api.scanFile(filePart, deviceId, deviceType)
             if (response.isSuccessful && response.body() != null) {
                 Result.success(response.body()!!)
             } else {

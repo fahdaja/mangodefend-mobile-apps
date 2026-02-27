@@ -23,12 +23,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // 1. Setup SDK (Single Instance)
-        // Arahkan ke IP Laptop/Server Anda (JANGAN localhost/127.0.0.1 kalau di Emulator)
-        // Gunakan 10.0.2.2 untuk emulator Android Studio
-        val mangoSdk = MangoDefendClient(baseUrl = "http://10.183.244.156:8000")
-
-        // 2. Masukkan SDK ke Repository
+        val mangoSdk = MangoDefendClient(baseUrl = "http://10.117.236.156:8000")
         val repository = ScanRepositoryImpl(sdk = mangoSdk)
 
         val viewModelFactory = object : ViewModelProvider.Factory {

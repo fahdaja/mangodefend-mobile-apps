@@ -1,6 +1,7 @@
 package com.muhammadfahd0121.mangodefend.sdk
 import com.muhammadfahd0121.mangodefend.sdk.model.ScanResponseDto
 import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Multipart
@@ -12,7 +13,10 @@ interface MangoApi {
     // 1. Upload File
     @Multipart
     @POST("api/v1/scanning-file")
-    suspend fun scanFile(@Part file: MultipartBody.Part): Response<ScanResponseDto>
+    suspend fun scanFile(@Part file: MultipartBody.Part,
+                         @Part("device_id") deviceId: RequestBody,
+                         @Part("device_type") deviceType: RequestBody
+                         ): Response<ScanResponseDto>
 
     // 2. Cek Status (Polling)
     @GET("api/v1/status/{task_id}")

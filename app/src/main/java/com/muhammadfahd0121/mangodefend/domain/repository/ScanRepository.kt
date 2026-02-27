@@ -5,6 +5,6 @@ import java.io.File
 
 interface ScanRepository {
     // Fungsi suspend untuk operasi async (misal ke API)
-    suspend fun scanFile(file: File, originalFileName: String): Result<ScanResult>
+    suspend fun scanFile(file: File, originalFileName: String, deviceId: String,): Result<ScanResult>
     suspend fun checkScanStatus(taskId: String): Result<ScanResult>
 }
